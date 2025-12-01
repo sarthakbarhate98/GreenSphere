@@ -13,14 +13,6 @@ const getPosts = async (req, res) => {
       _id: post._id,
       content: post.content,
       task: post.task,
-      points: post.points || 10,
-      likes: post.likes || 0,
-      comments: post.comments?.length || 0,
-      createdAt: post.createdAt,
-      user: {
-        name: post.author?.name || 'Anonymous User',
-        avatar: getRandomAvatar()
-      }
     }));
 
     res.json({ success: true, data: postsWithAvatars });
